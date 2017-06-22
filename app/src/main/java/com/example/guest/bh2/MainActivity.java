@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         PackageManager.PERMISSION_GRANTED &&
                         ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
                                 PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "I'm in", Toast.LENGTH_LONG).show();
                     locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 100, this); //starts the listener think about moving this
+                    Toast.makeText(this, "listening...", Toast.LENGTH_SHORT).show();
                     Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                     mLongitude = location.getLongitude()+"";
                     mLatitude = location.getLatitude()+"";
@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mLongitude = location.getLongitude()+"";
         Log.d(TAG, "onLocationChanged: " + mLatitude + "," + mLongitude);
         locationText.setText("Long: " + mLongitude + "    |    " + " Lat: "+ mLatitude);
+        Toast.makeText(this, "moving...", Toast.LENGTH_SHORT).show();
     }
 
     @Override
