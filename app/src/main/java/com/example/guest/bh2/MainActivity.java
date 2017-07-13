@@ -19,8 +19,8 @@ import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, LocationListener{
-    @Bind(R.id.locate) Button locate;
+public class MainActivity extends AppCompatActivity implements LocationListener{
+//    @Bind(R.id.locate) Button locate;
     @Bind(R.id.location) TextView locationText;
 
     protected LocationManager locationManager;
@@ -35,16 +35,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        locate.setOnClickListener(this);
+//        locate.setOnClickListener(this);
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.ACCESS_FINE_LOCATION }, PERMISSION_ACCESS_COARSE_LOCATION);
         }
-    }
 
-    @Override
-        public void onClick(View v) {
-            if (v == locate) {  // Start location search
+
+//    @Override
+//        public void onClick(View v) {
+//            if (v == locate) {  // Start location search
                 if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) ==
                         PackageManager.PERMISSION_GRANTED &&
                         ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
 
-        }
 
 //    @Override
 //    protected void onStart() {
